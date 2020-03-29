@@ -1,0 +1,16 @@
+.container {
+    height: 80vh;
+}
+
+.login {
+   padding: 3rem;
+   display: flex;
+  justify-content: center;
+
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+}

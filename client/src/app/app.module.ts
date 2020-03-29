@@ -8,6 +8,17 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { environment } from 'src/environments/environment';
+import { LoginComponent } from './login/login.component';
+import { CoreModule } from './core/core.module';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+export const appRoutes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  }
+];
 
 
 const firebaseConfig = {
@@ -20,6 +31,7 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +39,10 @@ const firebaseConfig = {
     AngularMaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    CoreModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
