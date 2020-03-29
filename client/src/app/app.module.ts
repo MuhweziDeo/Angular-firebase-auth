@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { environment } from 'src/environments/environment';
+
 
 const firebaseConfig = {
   apiKey: environment.apiKey,
@@ -24,7 +26,8 @@ const firebaseConfig = {
     BrowserAnimationsModule,
     AngularMaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
