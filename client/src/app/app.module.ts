@@ -11,11 +11,12 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './login/login.component';
 import { CoreModule } from './core/core.module';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 export const appRoutes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   }
 ];
@@ -39,10 +40,12 @@ const firebaseConfig = {
     AngularMaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     StoreModule.forRoot({}, {}),
     CoreModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
