@@ -8,6 +8,18 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { environment } from 'src/environments/environment';
+import { CoreModule } from './core/core.module';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { loadingReducer } from '@store/loader/loader.reducer';
+
+export const appRoutes: Routes = [
+  {
+    path: 'auth',
+    loadChildren: () => import('@auth/auth.module').then((m) => m.AuthModule)
+  }
+];
 
 
 const firebaseConfig = {
@@ -27,7 +39,12 @@ const firebaseConfig = {
     AngularMaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    StoreModule.forRoot({}, {})
+    AngularFireAuthModule,
+    StoreModule.forRoot({loading: loadingReducer}, {}),
+    CoreModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

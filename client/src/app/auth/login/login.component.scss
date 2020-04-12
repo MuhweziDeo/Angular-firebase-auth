@@ -1,0 +1,30 @@
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+   padding: 3rem;
+   display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+}
+
+.action__buttons{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    text-align: center;
+}

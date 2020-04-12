@@ -1,1 +1,2 @@
-<button mat-raised-button color="primary">Get Started</button>
+<mat-progress-bar *ngIf="$loading | async" mode="query"></mat-progress-bar>
+<router-outlet></router-outlet>
