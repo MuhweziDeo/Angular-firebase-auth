@@ -13,7 +13,6 @@ export class AuthService {
 
   async sigInWithEmailAndPassword(email: string, password: string): Promise<any> {
     const response = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
-    console.log(response);
     return response;
   }
 

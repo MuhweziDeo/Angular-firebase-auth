@@ -19,7 +19,9 @@
       "dom"
     ],
     "paths": {
-      "@core/*":["./src/app/core/*"]
+      "@core/*":["./src/app/core/*"],
+      "@auth/*":["./src/app/auth/*"],
+      "@store/*":["./src/app/store/*"]
     }
   },
   "angularCompilerOptions": {

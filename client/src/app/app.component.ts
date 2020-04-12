@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,10 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  $loading: Observable<boolean>;
   constructor(
-    public store: Store<{}>
+    public store: Store<{loading: boolean}>
   ) {
-    console.log(this.store);
+    this.$loading = store.pipe(select('loading'));
   }
 }
