@@ -21,7 +21,8 @@
     "paths": {
       "@core/*":["./src/app/core/*"],
       "@auth/*":["./src/app/auth/*"],
-      "@store/*":["./src/app/store/*"]
+      "@store/*":["./src/app/store/*"],
+      "@models/*":["./src/app/models/*"]
     }
   },
   "angularCompilerOptions": {

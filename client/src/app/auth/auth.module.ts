@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AngularMaterialModule } from '../angular-material.module';
 import { AuthComponent } from './auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -12,8 +13,12 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       {
-        path: 'login',
-        component: LoginComponent
+        path: '',
+        component: LoginComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupComponent
       }
     ]
 
@@ -23,15 +28,17 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    AuthComponent
+    AuthComponent,
+    SignupComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     AngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  exports: []
+  exports: [],
+  providers: []
 })
 export class AuthModule { }

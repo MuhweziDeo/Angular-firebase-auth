@@ -16,7 +16,8 @@ const envConfigFile = `export const environment = {
     authDomain: '${process.env.FIREBASE_AUTH_DOMIAN}',
     databaseURL: '${process.env.FIREBASE_DATABASE_URL}',
     storageBucket: '${process.env.FIREBASE_STORAGE_BUCKET}',
-    messagingSenderId: '${process.env.FIREBASE_MESSAGING_SENDER_ID}'
+    messagingSenderId: '${process.env.FIREBASE_MESSAGING_SENDER_ID}',
+    projectId: '${process.env.FIREBASE_PROJECT_ID}'
 } ;
 
 `;
