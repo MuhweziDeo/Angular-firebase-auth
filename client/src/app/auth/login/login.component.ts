@@ -21,17 +21,21 @@ export class LoginComponent implements OnInit {
     private snackbar: MatSnackBar,
     private store: Store<{loading: boolean}>
   ) {
-    this.$loading = this.store.select('loading')
+    this.$loading = this.store.select('loading');
   }
 
   ngOnInit(): void {
   }
 
   async submit(): Promise<void> {
+    this.store.dispatch(showLoader());
     try {
       const response = await this.authService.sigInWithEmailAndPassword(this.email.value, this.password.value);
-      console.log(response);
+      this.store.dispatch(stopLoader());
+      console.log(response.user.xa);
     } catch ({message}) {
+
+      this.store.dispatch(stopLoader());
       this.snackbar.open(message, 'Exit');
     }
 
@@ -41,7 +45,6 @@ export class LoginComponent implements OnInit {
     try {
         this.store.dispatch(showLoader());
         const response = await this.authService.googleLogin();
-        console.log(response);
         this.store.dispatch(stopLoader());
     } catch (error) {
       this.store.dispatch(stopLoader());

@@ -26,7 +26,7 @@
         </mat-error>
       </mat-form-field>
 
-      <button  (click)="submit()" [disabled]="(password.invalid || email.invalid || ($loading | async))" mat-raised-button color="primary">
+      <button  (click)="submit()" [disabled]="(password.invalid || email.invalid || ($loading | async))" mat-raised-button color="accent">
         Login
       </button>
     </form>
@@ -42,8 +42,8 @@
     </button>
 
     <div class="action__buttons">
-        <a>Forgot password</a>
-        <a>Create Account</a>
+      <a  mat-raised-button color="default" [routerLink]="['../signup']" >Forgot Password</a>
+        <a  mat-raised-button color="default" [routerLink]="['../signup']" >Create Account</a>
       </div>
 
   </div>

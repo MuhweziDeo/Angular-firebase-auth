@@ -13,10 +13,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { loadingReducer } from '@store/loader/loader.reducer';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 export const appRoutes: Routes = [
   {
-    path: 'auth',
+    path: '',
     loadChildren: () => import('@auth/auth.module').then((m) => m.AuthModule)
   }
 ];
@@ -27,7 +28,8 @@ const firebaseConfig = {
   authDomain: environment.authDomain,
   databaseURL: environment.databaseURL,
   storageBucket: environment.storageBucket,
-  messagingSenderId: environment.messagingSenderId
+  messagingSenderId: environment.messagingSenderId,
+  projectId:  environment.projectId
 };
 @NgModule({
   declarations: [
@@ -46,7 +48,7 @@ const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
