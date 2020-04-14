@@ -59,5 +59,17 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  async google(): Promise<void> {
+    try {
+      this.store.dispatch(showLoader());
+      const response = await this.authService.googleLogin();
+      this.store.dispatch(stopLoader());
+      this.snackbar.open('Successfully Logged in', 'Exit', {duration: 3000});
+    } catch (error) {
+      this.store.dispatch(stopLoader());
+      this.snackbar.open(error.message, 'Exit');
+    }
+  }
+
 
 }

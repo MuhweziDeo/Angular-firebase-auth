@@ -55,4 +55,9 @@ export class AuthService {
     const userRef =  this.afs.doc(`users/${uid}`);
     return userRef.set(data, {merge: true});
   }
+
+  async sendPasswordResetEmail(email: string): Promise<any> {
+    const response = await this.afAuth.auth.sendPasswordResetEmail(email);
+    return response;
+  }
 }

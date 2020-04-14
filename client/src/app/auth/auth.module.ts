@@ -6,6 +6,7 @@ import { AngularMaterialModule } from '../angular-material.module';
 import { AuthComponent } from './auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'signup',
         component: SignupComponent
+      },
+      {
+        path: 'password-reset',
+        component: PasswordResetComponent
       }
     ]
 
@@ -30,6 +35,7 @@ const routes: Routes = [
     LoginComponent,
     AuthComponent,
     SignupComponent,
+    PasswordResetComponent,
   ],
   imports: [
     CommonModule,

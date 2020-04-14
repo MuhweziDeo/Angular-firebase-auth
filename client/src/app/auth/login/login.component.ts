@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     try {
       const response = await this.authService.sigInWithEmailAndPassword(this.email.value, this.password.value);
       this.store.dispatch(stopLoader());
-      console.log(response.user.xa);
+      this.snackbar.open('Successfully Logged in', 'Exit', {duration: 3000});
     } catch ({message}) {
 
       this.store.dispatch(stopLoader());
@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
         this.store.dispatch(showLoader());
         const response = await this.authService.googleLogin();
         this.store.dispatch(stopLoader());
+        this.snackbar.open('Successfully Logged in', 'Exit', {duration: 3000});
     } catch (error) {
       this.store.dispatch(stopLoader());
       this.snackbar.open(error.message, 'Exit');
